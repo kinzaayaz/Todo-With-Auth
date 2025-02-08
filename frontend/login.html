@@ -14,17 +14,24 @@
         <div class="para">
             <p>Kindly fill in the form to login</p>
         </div>
-        <form action="action.php">
-            <div class="input_group">
-                <label for="username">Username</label>
-                <input type="text" name="username" id="username" placeholder="Enter username">
-            </div>
+        <form id="login">
+            <!-- Email -->
             <div class="input_group">
                 <label for="email">Email</label>
-                <input type="email" name="email" id="email" placeholder="Enter email">
+                <input type="email" name="email" id="email" placeholder="john@gmail.com">
+            </div>
+
+            <!-- Password -->
+            <div class="input_group">
+                <label for="username">Username</label>
+                <input type="password" name="password" id="password" placeholder="**********">
             </div>
             <button type="submit" class="login-btn">Login</button>
         </form>
+        <p class="lp">Donot have account <a href="register.html">Register Now</a></p>
     </div>
+
+    <!-- scripts -->
+    <script src="scripts/login.js"></script> 
 </body>
 </html>
