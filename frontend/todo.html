@@ -47,15 +47,27 @@
         </div>
     </div>
 
-    <!-- To-Do List -->
+    <!-- To-Do List Table -->
     <div class="container mt-4">
         <div class="card p-4 shadow-sm">
             <h3 class="mb-3 text-center">My To-Do List</h3>
-            <ul id="todoList" class="list-group">
-                <!-- Todos will be dynamically added here -->
-            </ul>
+            <table class="table table-striped">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Todo Title</th>
+                        <th>Todo Description</th>
+                        <th>Todo Status</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody id="todoTableBody">
+                    <!-- Todos will be dynamically added here -->
+                </tbody>
+            </table>
         </div>
     </div>
+
 
 
     <!-- Bootstrap Script -->
