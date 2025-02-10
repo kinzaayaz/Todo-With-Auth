@@ -46,8 +46,21 @@ def create_todo(todo:CreateTodo,dict =Depends(get_current_user)):
 # Update a todo
 @router.put("/update/{id}")
 def update_todo(id:str,new_todo:UpdateTodo,dict = Depends(get_current_user)):
-    todo_collection.find_one_and_update({"_id":ObjectId(id)},{"$set":dict(new_todo)})
+    # find the collection first if exist then update it
+    todo = todo_collection.find_one({"_id":ObjectId(id)})
+    if not todo:
+        return HTTPException(status_code=404, detail="Todo not found")
+    
+    update_todo ={
+        "title":new_todo.title if new_todo.title is not None else todo["title"],
+        "description":new_todo.description if new_todo.description is not None else todo["description"],
+        "complete":new_todo.complete if new_todo.complete is not None else todo["complete"]
+    }
+
+    # now update the todo
+    todo_collection.find_one_and_update({"_id":ObjectId(id)},{"$set":dict(update_todo)})
     return {"Success":"Todo Updated","status":200}
+
 
 # Delete a todo
 @router.delete("/delete/{id}")
